@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>搜索结果</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/metisMenu.min.css" rel="stylesheet">
+	<link href="/css/index.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <div class="contain">
+	<div class="header">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  #if(userinfo.getUsername()?? != null)
+			  <a class="navbar-brand" href="#">Hi，#(userinfo.username??)</a>
+			  <a class="logout" href="/login/logout" >退出</a>
+			  #else
+			  <a class="navbar-brand" href="#">欢迎光临<span>简书</span>,请</a>
+			  <a class="logout" href="/login">登录</a>
+			  #end
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="/userCenter">个人中心 <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="/shoppingCart">购物车 <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="/order">我的订单 <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="#">联系客服 <span class="sr-only">(current)</span></a></li>		
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div class="search">
+		<nav id="search" class="navbar">
+			<div class="col-md-3">
+				<a href="/"><img src="/picture/DDlogoNEW.gif"></img></a>
+			</div>
+			<form role="form" action="/search/search">
+			<div class="col-md-6">
+				<div class="input-group" style="margin-top:20px">
+				  <input type="text" class="form-control" name="input" placeholder="Search for...">
+				  <span class="input-group-btn">
+					<button class="btn btn-default" type="submit" >Go!</button>
+				  </span>
+				</div>
+				<nav>
+				  <strong>热搜:</strong>&nbsp;&nbsp;
+				  <a href="/search/search/javaweb">JavaWeb</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="/search/search/C++">C++</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="/search/search/择天记">择天记</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="/search/search/刘明">刘明</a>
+				</nav>
+			</div>
+			</form>
+			<div class="col-md-3">
+				<div class="btn-group" role="group" aria-label="..." style="margin-top:20px">
+				  <a href="/shoppingCart" class="btn btn-warning btn-md" role="button"><img src="/picture/shoppingCart.png" width="15px" height="15px"/>&nbsp;&nbsp;购物车</a>
+				  <a href="/order" class="btn btn-danger btn-md" role="button"><img src="/picture/orders.png" width="15px" height="15px"/>&nbsp;&nbsp;我的订单</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div id="searchbody" class="search-body col-md-offset-3 col-md-6">
+		<div class='search-nav-warp'>
+			<div class='search-nav' id='searchNav'>
+				<a href='/search/#(searchFunc)/#(searchTemp)-1-0' >综合</a>
+				<a href='/search/#(searchFunc)/#(searchTemp)-1-4' >销量</a>
+				<a href='/search/#(searchFunc)/#(searchTemp)-1-1' >价格</a>
+				<a href='javascript:;' data-page='article' >评价</a>
+			</div>
+		</div>
+		#if(number.num != 0)
+		<div class='search-related'>
+			共找到 <strong>#(number.num)&nbsp;</strong>个相关内容
+		</div>
+		#else
+			<div class="search-related" style="height:360px">
+			<strong>没有搜索到与&nbsp;&nbsp;<span>#(searchTemp)</span>&nbsp;&nbsp;相关的书籍</strong>
+			<ol>
+				<li>看看输入的文字是否有误</li>
+				<li>调整关键字 如 “javaWEB” 改为“java web"</li>
+				<li>重新搜索</li>
+			</ol>
+			</div>
+		#end
+	<!-- search result -->
+	#for(x : bookinfo.getList())	
+	<div class='book-item clearfix'>
+	<div class="row">
+		<div class='col-md-5'>
+			<a href='/bookinfo/#(x.bookID)' target="_blank">
+				<img src='/picture/#(x.picture)'/>
+			</a>
+		</div>
+		<div class='col-md-7'>
+			<div class='course-item-title'>
+				<span class='type'>[书名]</span>
+				<a href='/bookinfo/#(x.bookID)' target="_blank"><span  class='highlight'>#(x.book)</span></a>
+			</div>
+			<div class='tag'>				
+				<a href="/search/writerSearch/#(x.writer)"><span>#(x.writer)</span></a>/
+				<span>#(x.pubTime)</span>/
+				<a href="/search/pubFirmSearch/#(x.pubFirm)"><span>#(x.pubFirm)</span></a>
+			</div>
+			<div class='tag'>
+			<span><strong>价格：</strong>#(x.price)</span>
+			</div>
+			<div class='tag'>
+			<span><strong>销量：</strong>#(x.sales)</span>
+			</div>
+			<br>
+			<p class='content'>
+				<span>书籍简介：</span>
+				<span  class='highlight'>#(x.abstract)</span>		
+			</p>
+		</div>
+		</div>
+	</div>
+	#end
+	<center>
+	#@paginate(bookinfo.pageNumber, bookinfo.totalPage, searchTemp, searchFunc, "/search/")
+	</center>
+	</div>
+	</div>
+	<div id="footer" style="width:100%;height:100px;text-align:center" class="col-md-12">
+		<div class="footer_copyright"><span>Copyright (C) 当当网 2004-2017, All Rights Reserved</span></div>
+		<div class="footer_copyright"><span><a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP证041189号</a></span>
+		<span class="sep">|</span><span>出版物经营许可证 新出发京批字第直0673号</span>
+		<span class="sep">|</span><span>食品流通许可证：SP1101011010021855(1-1)</span>
+		<br><span>互联网药品信息服务资格证编号：(京)-非经营性-2012-0016</span><span class="sep">|</span>
+		<span>京公网安备110101000001号</span></div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+  </body>
+</html>

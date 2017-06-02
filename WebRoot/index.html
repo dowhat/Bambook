@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>简书网</title>
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/metisMenu.min.css" rel="stylesheet">
+	<link href="/css/index.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+	<div class="header">
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  #if(userinfo.getUsername()?? != null)
+			  <a class="navbar-brand" href="#">Hi，#(userinfo.username??)</a>
+			  <a class="logout" href="/login/logout" >退出</a>
+			  #else
+			  <a class="navbar-brand" href="#">欢迎光临<span>简书</span>,请</a>
+			  <a class="logout" href="/login">登录</a>
+			  #end
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="/userCenter">个人中心 <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="/shoppingCart">购物车 <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="/order">我的订单 <span class="sr-only">(current)</span></a></li>
+				<li class="active"><a href="#">联系客服 <span class="sr-only">(current)</span></a></li>		
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+	<div class="search">
+		<nav id="search" class="navbar">
+			<div class="col-md-3">
+				<a href="/"><img src="/picture/DDlogoNEW.gif"></img></a>
+			</div>
+			<form role="form" action="/search/search">
+			<div class="col-md-6">
+				<div class="input-group" style="margin-top:20px">
+				  <input type="text" class="form-control" name="input" placeholder="Search for...">
+				  <span class="input-group-btn">
+					<button class="btn btn-default" type="submit" >Go!</button>
+				  </span>
+				</div>
+				<nav>
+				  <strong>热搜:</strong>&nbsp;&nbsp;
+				  <a href="/search/search/javaweb">JavaWeb</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="/search/search/C++">C++</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="/search/search/择天记">择天记</a> &nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="/search/search/刘明">刘明</a>
+				</nav>
+			</div>
+			</form>
+			<div class="col-md-3">
+				<div class="btn-group" role="group" aria-label="..." style="margin-top:20px">
+				  <a href="/shoppingCart" class="btn btn-warning btn-md" role="button"><img src="/picture/shoppingCart.png" width="15px" height="15px"/>&nbsp;&nbsp;购物车</a>
+				  <a href="/order" class="btn btn-danger btn-md" role="button"><img src="/picture/orders.png" width="15px" height="15px"/>&nbsp;&nbsp;我的订单</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<div class="content">
+	<div class="row">
+		<div class="col-md-2 col-sm-3 sidebar">
+			<ul class="nav nav-sidebar metismenu" id="menu">
+			  <li role="presentation" class="active" style="background-color:#CCCCFF"><a href="#">图书分类</a></li>
+			  #for(x: mainCatalog)
+			  <li>
+				<a href="/subCatalog/#(x.getMCatalogID())" class="has-row" aria-extra-expanded="false">#(x.getMCatalogName())
+				<span style="text-align:right">></span>
+				</a>
+					<ul aria-expanded="false">
+						#for(y: subCatalog)
+						#if(x.getMCatalogID() == y.getMCatalogID())
+						<li><a href="/search/catalogSearch/#(y.sCatalogID)" name="sCatalogName">#(y.getSCatalogName())</a></li>
+						#end
+						#end
+					</ul>
+			  </li>
+			  #end
+		</div>
+		<div class="col-md-offset-2 col-md-10">
+			<div class="row">
+				<div class="col-md-8">
+					<div id="myCarousel" class="carousel slide">
+					<!-- 轮播（Carousel）指标 -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>   
+					<!-- 轮播（Carousel）项目 -->
+					<div class="carousel-inner">
+						<div class="item active">
+						<a href="#">
+							<img src="/picture/activity1.jpg" alt="First slide">
+						</a>
+						</div>
+						<div class="item">
+							<a href="#">
+							<img src="/picture/activity2.jpg" alt="Second slide">
+							</a>
+						</div>
+						<div class="item">
+							<a href="#">
+							<img src="/picture/activity3.jpg" alt="Third slide">
+							</a>
+						</div>
+					</div>
+					<!-- 轮播（Carousel）导航 -->
+					<a class="carousel-control left" href="#myCarousel" 
+					   data-slide="prev">&lsaquo;</a>
+					<a class="carousel-control right" href="#myCarousel" 
+					   data-slide="next">&rsaquo;</a>
+					</div> 
+				</div>
+				<div class="col-md-4">
+				<div class="panel panel-default">
+				  <div class="panel-heading">最新动态</div>
+				  <div class="panel-body">
+					<div class="alert" role="alert">
+					  <a href="#" class="alert-link"><strong>优惠：</strong>书卷多情似故人,文艺畅品4.9折限时抢</a>
+					</div>
+					<div class="alert" role="alert">
+					  <a href="#" class="alert-link"><strong>优惠：</strong>初夏读好书，生活图书 4.9折抢购</a>
+					</div>
+					<div class="alert" role="alert">
+					  <a href="#" class="alert-link"><strong>新闻：</strong>重塑世界新格局:"一带一路"北京峰会</a>
+					</div>
+				  </div>
+				</div>
+			</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8">
+					<div id="myCarousel" class="carousel slide">
+						<!-- 轮播（Carousel）指标 -->
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+						</ol>   
+						<!-- 轮播（Carousel）项目 -->
+						<div class="carousel-inner">
+							<div class="item active">
+							  <div class="pic">
+								  <img src="/picture/book.min1.jpg" alt="First slide">
+								  <img src="/picture/book.min2.jpg" >
+								  <img src="/picture/book.min3.jpg" >
+								  <img src="/picture/book.min4.jpg" >
+								  <img src="/picture/book.min5.jpg" >
+								  <img src="/picture/book.min6.jpg" >
+								  <img src="/picture/book.min7.jpg" >
+								  <img src="/picture/book.min8.jpg" >								  
+							  </div>
+							</div>
+							<div class="item">
+							  <div class="pic">
+								  <img src="/picture/book5.jpg" alt="Second slide">
+								  <img src="/picture/book6.jpg" >
+								  <img src="/picture/book7.jpg" >
+								  <img src="/picture/book8.jpg" >
+							  </div>
+							</div>
+							<div class="item">
+							  <div class="pic">
+								  <img src="/picture/book1.jpg" alt="Third slide">
+								  <img src="/picture/book3.jpg" >
+								  <img src="/picture/book5.jpg" >
+								  <img src="/picture/book9.jpg" >
+							  </div>
+							</div>
+						</div>
+						<!-- 轮播（Carousel）导航 -->
+						<a class="carousel-control left" href="#myCarousel" 
+						   data-slide="prev">&lsaquo;</a>
+						<a class="carousel-control right" href="#myCarousel" 
+						   data-slide="next">&rsaquo;</a>
+					</div> 
+				</div>
+				<div class="col-md-4">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">榜单</h3>
+						</div>
+						<div class="panel-body">
+							<ul id="myTab" class="nav nav-tabs">
+								<li class="active">
+									<a href="#home" data-toggle="tab">
+										总榜
+									</a>
+								</li>
+								<li><a href="#edu" data-toggle="tab">教育</a></li>
+								<li><a href="#jmeter" data-toggle="tab">小说</a></li>
+								<li><a href="#ejb" data-toggle="tab">科技</a></li>
+							</ul>
+							<div id="myTabContent" class="tab-content">
+								<div class="tab-pane fade in active" id="home">
+											<ul class="list-group">
+										<li class="list-group-item">小学语文</li>
+										<li class="list-group-item">小学数学</li>
+										<li class="list-group-item">小学英语</li>
+										<li class="list-group-item">小学体育</li>
+										<li class="list-group-item">小学音乐</li>
+									</ul>
+								</div>
+								<div class="tab-pane fade" id="edu">
+									<ul class="list-group">
+										<li class="list-group-item">2</li>
+										<li class="list-group-item">Dapibus ac facilisis in</li>
+										<li class="list-group-item">Morbi leo risus</li>
+										<li class="list-group-item">Porta ac consectetur ac</li>
+										<li class="list-group-item">Vestibulum at eros</li>
+									</ul>
+								</div>
+								<div class="tab-pane fade" id="jmeter">
+									<ul class="list-group">
+										<li class="list-group-item">3</li>
+										<li class="list-group-item">Dapibus ac facilisis in</li>
+										<li class="list-group-item">Morbi leo risus</li>
+										<li class="list-group-item">Porta ac consectetur ac</li>
+										<li class="list-group-item">Vestibulum at eros</li>
+									</ul>
+								</div>
+								<div class="tab-pane fade" id="ejb">
+									<ul class="list-group">
+										<li class="list-group-item">C4</li>
+										<li class="list-group-item">Dapibus ac facilisis in</li>
+										<li class="list-group-item">Morbi leo risus</li>
+										<li class="list-group-item">Porta ac consectetur ac</li>
+										<li class="list-group-item">Vestibulum at eros</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="footer" style="width:100%;height:100px;text-align:center" class="col-md-12">
+		<div class="footer_copyright"><span>Copyright (C) 当当网 2004-2017, All Rights Reserved</span></div>
+		<div class="footer_copyright"><span><a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP证041189号</a></span>
+		<span class="sep">|</span><span>出版物经营许可证 新出发京批字第直0673号</span>
+		<span class="sep">|</span><span>食品流通许可证：SP1101011010021855(1-1)</span>
+		<br><span>互联网药品信息服务资格证编号：(京)-非经营性-2012-0016</span><span class="sep">|</span>
+		<span>京公网安备110101000001号</span></div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+	<script src="/js/metisMenu.min.js"></script>
+	<script>
+	$("#menu").metisMenu();
+	</script>
+  </body>
+</html>

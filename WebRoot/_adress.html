@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>收货地址</title>
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="address">
+<div class="table_box">
+	<h2>现有地址</h2>
+	<table class="list">
+		<tbody>
+			<tr>
+				<th width="12%">姓名</th>
+				<th width="35%">收货详细地址</th>
+				<th width="12%">邮政编码</th>
+				<th width="12%">电话号码</th>
+				<th width="12%">操作</th>
+				
+			</tr>
+			
+			#for(x : address)	
+			<tr>
+				<td style="text-align:left;">#(x.name)</td>
+				<td style="text-align:left;">#(x.address)</td>
+				<td style="text-align:left;">#(x.postcode)</td>
+				<td style="text-align:left;">#(x.telephone)</td>
+				<td style="text-align:left;">
+					&nbsp;&nbsp;<a href="/address/delete/#(x.id)">删除</a>
+					&nbsp;&nbsp;<a href="/address/edit/#(x.id)">修改</a>
+				</td>
+			</tr>
+			#end
+		</tbody>
+	</table>
+</div>
+	<div>
+    <form action="/address/add" >
+        <h2 class="form-signin-heading">收货地址</h2>
+		<br>
+		<br>
+		<label for="username" class="col-sm-2 control-label">姓名</label>
+        <input type="username" name="userinfo.username" class="form-control" value="#(userinfo.username)" required autofocus>
+		<br>
+		<label for="password" class="col-sm-2 control-label">收货详细地址</label>
+        <input type="password" name="userinfo.password" class="form-control" value="#(userinfo.password)" required>
+		<br>
+		<label for="telephone" class="col-sm-2 control-label">邮政编码</label>
+        <input type="telephone" name="userinfo.telephone" class="form-control" value="#(userinfo.telephone??)" required>
+		<br>
+		<label for="email" class="col-sm-2 control-label">电话号码</label>
+        <input type="email" name="userinfo.email" class="form-control" value="#(userinfo.email??)" required>
+		<br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">修改</button>
+     </form>
+	</div>
+	</div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
