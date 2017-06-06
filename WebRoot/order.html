@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>订单中心</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>订单中心</title>
 
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/metisMenu.min.css" rel="stylesheet">
-	<link href="/css/index.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- Bootstrap -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/metisMenu.min.css" rel="stylesheet">
+<link href="/css/index.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+</head>
+<body>
 	<div class="header">
 		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  #if(userinfo.getUsername()?? != null)
-			  <a class="navbar-brand" href="#">Hi，#(userinfo.username??)</a>
-			  <a class="logout" href="/login/logout" >退出</a>
-			  #else
-			  <a class="navbar-brand" href="#">欢迎光临<span>简书</span>,请</a>
-			  <a class="logout" href="/login">登录</a>
-			  #end
-			</div>
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+						aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					#if(userinfo.getUsername()?? != null) <a class="navbar-brand"
+						href="#">Hi，#(userinfo.username??)</a> <a class="logout"
+						href="/login/logout">退出</a> #else <a class="navbar-brand"
+						href="#">欢迎光临<span>简书</span>,请
+					</a> <a class="logout" href="/login">登录</a> #end
+				</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  <ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="/userCenter">个人中心 <span class="sr-only">(current)</span></a></li>
-				<li class="active"><a href="/shoppingCart">购物车 <span class="sr-only">(current)</span></a></li>
-				<li class="active"><a href="/order">我的订单 <span class="sr-only">(current)</span></a></li>
-				<li class="active"><a href="#">联系客服 <span class="sr-only">(current)</span></a></li>		
-			  </ul>
-			</div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="/userCenter">个人中心 <span
+								class="sr-only">(current)</span></a></li>
+						<li class="active"><a href="/shoppingCart">购物车 <span
+								class="sr-only">(current)</span></a></li>
+						<li class="active"><a href="/order">我的订单 <span
+								class="sr-only">(current)</span></a></li>
+						<li class="active"><a href="#">联系客服 <span class="sr-only">(current)</span></a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
 		</nav>
 	</div>
 	<div class="search">
@@ -56,26 +61,30 @@
 				<a href="/"><img src="/picture/DDlogoNEW.gif"></img></a>
 			</div>
 			<form role="form" action="/search/search">
-			<div class="col-md-6">
-				<div class="input-group" style="margin-top:20px">
-				  <input type="text" class="form-control" name="input" placeholder="Search for...">
-				  <span class="input-group-btn">
-					<button class="btn btn-default" type="submit" >Go!</button>
-				  </span>
+				<div class="col-md-6">
+					<div class="input-group" style="margin-top: 20px">
+						<input type="text" class="form-control" name="input"
+							placeholder="Search for..."> <span
+							class="input-group-btn">
+							<button class="btn btn-default" type="submit">Go!</button>
+						</span>
+					</div>
+					<nav>
+						<strong>热搜:</strong>&nbsp;&nbsp; <a href="/search/search/javaweb">JavaWeb</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/C++">C++</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/择天记">择天记</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/刘明">刘明</a>
+					</nav>
 				</div>
-				<nav>
-				  <strong>热搜:</strong>&nbsp;&nbsp;
-				  <a href="/search/search/javaweb">JavaWeb</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/C++">C++</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/择天记">择天记</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/刘明">刘明</a>
-				</nav>
-			</div>
 			</form>
 			<div class="col-md-3">
-				<div class="btn-group" role="group" aria-label="..." style="margin-top:20px">
-				  <a href="/shoppingCart" class="btn btn-warning btn-md" role="button"><img src="/picture/shoppingCart.png" width="15px" height="15px"/>&nbsp;&nbsp;购物车</a>
-				  <a href="/order" class="btn btn-danger btn-md" role="button"><img src="/picture/orders.png" width="15px" height="15px"/>&nbsp;&nbsp;我的订单</a>
+				<div class="btn-group" role="group" aria-label="..."
+					style="margin-top: 20px">
+					<a href="/shoppingCart" class="btn btn-warning btn-md"
+						role="button"><img src="/picture/shoppingCart.png"
+						width="15px" height="15px" />&nbsp;&nbsp;购物车</a> <a href="/order"
+						class="btn btn-danger btn-md" role="button"><img
+						src="/picture/orders.png" width="15px" height="15px" />&nbsp;&nbsp;我的订单</a>
 				</div>
 			</div>
 		</nav>
@@ -84,65 +93,74 @@
 		<div class="left">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-				<li class="active" style="background-color: #ccccff"><a href="/">我的当当</a></li>
+					<li class="active" style="background-color: #ccccff"><a
+						href="/">我的当当</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-				<li><strong>我的交易</strong></li>
-				<li><a href="/order">我的订单</a></li>
-				<li><a href="#">我的账单</a></li>
+					<li><strong>我的交易</strong></li>
+					<li><a href="/order">我的订单</a></li>
+					<li><a href="#">我的账单</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-				<li><strong>售后服务</strong></li>			
-				<li><a href="#">申请/查询退换货</a></li>
-				<li><a href="#">补开/合并发票</a></li>
+					<li><strong>售后服务</strong></li>
+					<li><a href="#">申请/查询退换货</a></li>
+					<li><a href="#">补开/合并发票</a></li>
 				</ul>
 				<ul class="nav nav-sidebar">
-				<li><strong>个人中心</strong></li>			
-				<li><a href="#">个人信息</a></li>
-				<li><a href="#">安全中心</a></li>
-				<li><a href="#">收货地址</a></li>
+					<li><strong>个人中心</strong></li>
+					<li><a href="#">个人信息</a></li>
+					<li><a href="#">安全中心</a></li>
+					<li><a href="#">收货地址</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="right col-md-offset-3">
-		#for(x: orderID)
-		<div class="panel panel-default">
-			<div class="panel-heading">
-				<span>订单号：<strong>#(x.orderID)</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;
-				<span>订单状态：#(x.orderStatus)</span>
+			#for(x: orderID)
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<span>订单号：<strong>#(x.orderID)</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;
+					<span>订单状态：#(x.orderStatus)</span>
+				</div>
+				<div class="panel-body">
+					#for(y: order) #if(y.id == x.orderID)
+					<p>书籍：#(y.book)</p>
+					<h5>时间：#(y.date)</h5>
+					<h5>
+						数量：<span>#(y.number)</span>
+					</h5>
+					<h5>
+						单价：<span>#(y.price)</span>
+					</h5>
+					<hr>
+					#end #end
+				</div>
 			</div>
-			<div class="panel-body">
-			#for(y: order)
-			#if(y.id == x.orderID)
-				<p>书籍：#(y.book)</p>
-				<h5>时间：#(y.date)</h5>
-				<h5>数量：<span>#(y.number)</span></h5>
-				<h5>单价：<span>#(y.price)</span></h5>
-								<hr>
+			#end #if(orderNumber == 0)
+			<div style="height: 400px">
+				<h2>很抱歉，没有找到您的订单信息</h2>
+				<img src="/picture/empty_cart.png" />
+			</div>
 			#end
-			#end
-			</div>
-		</div>
-		#end
-		#if(orderNumber == 0)
-			<div style="height:400px">
-			<h2>很抱歉，没有找到您的订单信息</h2>
-			<img src="/picture/empty_cart.png"/>
-			</div>
-		#end
 		</div>
 	</div>
-	<div id="footer" style="width:100%;height:100px;text-align:center" class="col-md-12">
-		<div class="footer_copyright"><span>Copyright (C) 当当网 2004-2017, All Rights Reserved</span></div>
-		<div class="footer_copyright"><span><a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP证041189号</a></span>
-		<span class="sep">|</span><span>出版物经营许可证 新出发京批字第直0673号</span>
-		<span class="sep">|</span><span>食品流通许可证：SP1101011010021855(1-1)</span>
-		<br><span>互联网药品信息服务资格证编号：(京)-非经营性-2012-0016</span><span class="sep">|</span>
-		<span>京公网安备110101000001号</span></div>
+	<div id="footer" style="width: 100%; height: 100px; text-align: center"
+		class="col-md-12">
+		<div class="footer_copyright">
+			<span>Copyright (C) 当当网 2004-2017, All Rights Reserved</span>
+		</div>
+		<div class="footer_copyright">
+			<span><a href="http://www.miibeian.gov.cn/" target="_blank"
+				rel="nofollow">京ICP证041189号</a></span> <span class="sep">|</span><span>出版物经营许可证
+				新出发京批字第直0673号</span> <span class="sep">|</span><span>食品流通许可证：SP1101011010021855(1-1)</span>
+			<br>
+			<span>互联网药品信息服务资格证编号：(京)-非经营性-2012-0016</span><span class="sep">|</span>
+			<span>京公网安备110101000001号</span>
+		</div>
 	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/js/bootstrap.min.js"></script>
-  </body>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/bootstrap.min.js"></script>
+</body>
 </html>

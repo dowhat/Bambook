@@ -54,9 +54,6 @@ public class LoginController extends Controller {
 	
 	public void logout(){
 		removeSessionAttr("userinfo");
-		System.out.println(getSessionAttr("userinfo"));
-		System.out.println("helloworld");
-		System.out.println("helloworld");
 		redirect("/");
 	}
 

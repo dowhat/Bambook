@@ -1,182 +1,206 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>书籍详情</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>书籍详情</title>
 
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/css/metisMenu.min.css" rel="stylesheet">
-	<link href="/css/index.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- Bootstrap -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/metisMenu.min.css" rel="stylesheet">
+<link href="/css/index.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
       <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	 <style type="text/css">
-	*{ margin:0px; padding:0px;}
-
-.box{
-	position:relative;
-	margin:10px auto;
-	background:#CCC;
-	border:1px solid #666;
-}
-
-.box .small{
-	position:relative;
-	text-align:center;
-	background:#FFF;}
-
-.box .small .mark{
-	position:absolute;
-	top:0;
-	left:0;
-	z-index:2;
-	width:80px;
-	height:80px;
-	background:#FFFFFF;
-	filter:alpha(opacity:50); 
-	opacity:0.5;
-	border:1px solid #333;
-	display:none;
-	}
-
-.box .big{
-	position:absolute;
-	left:225px;
-	top:0;
-	display:none;
+<style type="text/css">
+	* {
+		margin: 0px;
+		padding: 0px;
 	}
 	
-.boxbig{
-	position:absolute;
-	left:450px;
-	top:0;
-	width:160px;
-	height:160px;
-	overflow:hidden;
-	z-index:10;
+	.box {
+		position: relative;
+		margin: 10px auto;
+		background: #CCC;
+		border: 1px solid #666;
 	}
-	</style>
-  </head>
-  <body>
-  <div class="col-md-10 col-md-offset-1">
-	<div class="header">
-		<nav class="navbar navbar-default">
-		  <div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="navbar-header">
-			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			  </button>
-			  #if(userinfo.getUsername()?? != null)
-			  <a class="navbar-brand" href="#">Hi，#(userinfo.username??)</a>
-			  <a class="logout" href="/login/logout" >退出</a>
-			  #else
-			  <a class="navbar-brand" href="#">欢迎光临<span>简书</span>,请</a>
-			  <a class="logout" href="/login">登录</a>
-			  #end
-			</div>
+	
+	.box .small {
+		position: relative;
+		text-align: center;
+		background: #FFF;
+	}
+	
+	.box .small .mark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		width: 80px;
+		height: 80px;
+		background: #FFFFFF;
+		filter: alpha(opacity : 50);
+		opacity: 0.5;
+		border: 1px solid #333;
+		display: none;
+	}
+	
+	.box .big {
+		position: absolute;
+		left: 225px;
+		top: 0;
+		display: none;
+	}
+	
+	.boxbig {
+		position: absolute;
+		left: 450px;
+		top: 0;
+		width: 160px;
+		height: 160px;
+		overflow: hidden;
+		z-index: 10;
+	}
+</style>
+</head>
+<body>
+	<div class="col-md-10 col-md-offset-1">
+		<div class="header">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						#if(userinfo.getUsername()?? != null) <a class="navbar-brand"
+							href="#">Hi，#(userinfo.username??)</a> <a class="logout"
+							href="/login/logout">退出</a> #else <a class="navbar-brand"
+							href="#">欢迎光临<span>简书</span>,请
+						</a> <a class="logout" href="/login">登录</a> #end
+					</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  <ul class="nav navbar-nav navbar-right">
-				<li class="active"><a href="/userCenter">个人中心 <span class="sr-only">(current)</span></a></li>
-				<li class="active"><a href="/shoppingCart">购物车 <span class="sr-only">(current)</span></a></li>
-				<li class="active"><a href="/order">我的订单 <span class="sr-only">(current)</span></a></li>
-				<li class="active"><a href="#">联系客服 <span class="sr-only">(current)</span></a></li>		
-			  </ul>
-			</div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
-	</div>
-	<div class="search">
-		<nav id="search" class="navbar">
-			<div class="col-md-3">
-				<a href="/"><img src="/picture/DDlogoNEW.gif"></img></a>
-			</div>
-			<form role="form" action="/search/search">
-			<div class="col-md-6">
-				<div class="input-group" style="margin-top:20px">
-				  <input type="text" class="form-control" name="input" placeholder="Search for...">
-				  <span class="input-group-btn">
-					<button class="btn btn-default" type="submit" >Go!</button>
-				  </span>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="active"><a href="/userCenter">个人中心 <span
+									class="sr-only">(current)</span></a></li>
+							<li class="active"><a href="/shoppingCart">购物车 <span
+									class="sr-only">(current)</span></a></li>
+							<li class="active"><a href="/order">我的订单 <span
+									class="sr-only">(current)</span></a></li>
+							<li class="active"><a href="#">联系客服 <span
+									class="sr-only">(current)</span></a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
 				</div>
-				<nav>
-				  <strong>热搜:</strong>&nbsp;&nbsp;
-				  <a href="/search/search/javaweb">JavaWeb</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/C++">C++</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/择天记">择天记</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/刘明">刘明</a>
-				</nav>
-			</div>
-			</form>
-			<div class="col-md-3">
-				<div class="btn-group" role="group" aria-label="..." style="margin-top:20px">
-				  <a href="/shoppingCart" class="btn btn-warning btn-md" role="button"><img src="/picture/shoppingCart.png" width="15px" height="15px"/>&nbsp;&nbsp;购物车</a>
-				  <a href="/order" class="btn btn-danger btn-md" role="button"><img src="/picture/orders.png" width="15px" height="15px"/>&nbsp;&nbsp;我的订单</a>
+				<!-- /.container-fluid -->
+			</nav>
+		</div>
+		<div class="search">
+			<nav id="search" class="navbar">
+				<div class="col-md-3">
+					<a href="/"><img src="/picture/DDlogoNEW.gif"></img></a>
 				</div>
-			</div>
-		</nav>
-	</div>
+				<form role="form" action="/search/search">
+					<div class="col-md-6">
+						<div class="input-group" style="margin-top: 20px">
+							<input type="text" class="form-control" name="input"
+								placeholder="Search for..."> <span
+								class="input-group-btn">
+								<button class="btn btn-default" type="submit">Go!</button>
+							</span>
+						</div>
+						<nav>
+							<strong>热搜:</strong>&nbsp;&nbsp; <a href="/search/search/javaweb">JavaWeb</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/C++">C++</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/择天记">择天记</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/刘明">刘明</a>
+						</nav>
+					</div>
+				</form>
+				<div class="col-md-3">
+					<div class="btn-group" role="group" aria-label="..."
+						style="margin-top: 20px">
+						<a href="/shoppingCart" class="btn btn-warning btn-md"
+							role="button"><img src="/picture/shoppingCart.png"
+							width="15px" height="15px" />&nbsp;&nbsp;购物车</a> <a href="/order"
+							class="btn btn-danger btn-md" role="button"><img
+							src="/picture/orders.png" width="15px" height="15px" />&nbsp;&nbsp;我的订单</a>
+					</div>
+				</div>
+			</nav>
+		</div>
 	</div>
 	<div class="content col-md-offset-2 col-md-8">
 		<ol class="breadcrumb">
 			<li><a href="/">图书</a></li>
 			<li><a href="#">#(mCatalog)</a></li>
-			<li><a href="/search/catalogSearch/#(sCatalog.sCatalogID)">#(sCatalog.sCatalogName)</a></li>			
+			<li><a href="/search/catalogSearch/#(sCatalog.sCatalogID)">#(sCatalog.sCatalogName)</a></li>
 			<li class="active">#(bookinfo.getBook())</li>
 		</ol>
 		<div class="row">
 			<div class="col-md-6">
 				<!--<img class="tip" src="/picture/#(bookinfo.picture)"/> -->
-								<div class="box">
-			    	<div class="small">
-			        	<span class="mark"></span>
-			            <img src="/picture/book_12_s.jpg" alt="" />
-			        </div>
-			        <div class="boxbig">
-			        	<div class="big"><img src="/picture/book_12_b.jpg" alt="" /></div>
-			        </div>
-			    </div>
+				<div class="box">
+					<div class="small">
+						<span class="mark"></span> <img src="/picture/book_12_s.jpg"
+							alt="" />
+					</div>
+					<div class="boxbig">
+						<div class="big">
+							<img src="/picture/book_12_b.jpg" alt="" />
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-6">
 				<h2>#(bookinfo.getBook())</h2>
-				<p>#(bookinfo.getAbstract())
-				</p>
-				<h4>作者：<a href="/search/pubFirmSearch/#(bookinfo.writer)">#(bookinfo.getWriter())</a></h4>
-				<h4>出版社：<a href="/search/pubFirmSearch/#(bookinfo.pubFirm)">#(bookinfo.getPubFirm())</a></h4>
-				<h4>出版时间：<span>#(bookinfo.getPubTime())</span> </h4>
-				<h4><a href="#">#(number.num??0)</a>条评论</h4>
-				<h2>价格￥<span>#(bookinfo.getPrice())</span></h2>
+				<p>#(bookinfo.getAbstract())</p>
+				<h4>
+					作者：<a href="/search/pubFirmSearch/#(bookinfo.writer)">#(bookinfo.getWriter())</a>
+				</h4>
+				<h4>
+					出版社：<a href="/search/pubFirmSearch/#(bookinfo.pubFirm)">#(bookinfo.getPubFirm())</a>
+				</h4>
+				<h4>
+					出版时间：<span>#(bookinfo.getPubTime())</span>
+				</h4>
+				<h4>
+					<a href="#">#(number.num??0)</a>条评论
+				</h4>
+				<h2>
+					价格￥<span>#(bookinfo.getPrice())</span>
+				</h2>
 				<div style="padding: 10px 10px 10px 15px;" class="col-md-3">
 					<form class="bs-example bs-example-form" role="form">
-								<div class="input-group spinner">
-									<span class="input-group-btn">
-										<button class="btn btn-default add" type="button">
-											+
-										</button>
-									</span>
-									<input type="text" class="form-control" name="number" value="1" style="width: 35px">
-									<span class="input-group-btn">
-										<button class="btn btn-default delete" type="button">
-											-
-										</button>
-									</span>
-								</div><!-- /input-group -->
+						<div class="input-group spinner">
+							<span class="input-group-btn">
+								<button class="btn btn-default add" type="button">+</button>
+							</span> <input type="text" class="form-control" name="number" value="1"
+								style="width: 35px"> <span class="input-group-btn">
+								<button class="btn btn-default delete" type="button">-
+								</button>
+							</span>
+						</div>
+						<!-- /input-group -->
 					</form>
 				</div>
 				<div class="btn-group col-md-12" role="group" aria-label="...">
-				  <a href="/shoppingCart/add/#(bookinfo.bookID)" class="btn btn-warning btn-md" role="button">加入购物车</a>
-				  <a href="/order/add/#(bookinfo.bookID)" class="btn btn-danger btn-md" role="button">立即购买</a>
+					<a href="/shoppingCart/add/#(bookinfo.bookID)"
+						class="btn btn-warning btn-md" role="button">加入购物车</a> <a
+						href="/order/add/#(bookinfo.bookID)" class="btn btn-danger btn-md"
+						role="button">立即购买</a>
 				</div>
 			</div>
 		</div>
@@ -184,68 +208,66 @@
 	<div class="review">
 		<div class="col-md-offset-2 col-md-8">
 			<div class="panel panel-primary">
-			  <div class="panel-body">
-				<ul id="myTab" class="nav nav-tabs">
-					<li class="active">
-						<a href="#home" data-toggle="tab">
-							 图书详情
-						</a>
-					</li>
-					<li>
-						<a href="#review" data-toggle="tab">
-							 图书评论&nbsp;<span class="badge">#(number.num??0)</span>
-						</a>
-					</li>
-				</ul>
-				<div id="myTabContent" class="tab-content">
-					<div class="tab-pane fade in active" id="home">
-						<table class="table">
-							<tbody>
-								<tr>
-									<td>库存:</td>
-									<td>#(bookinfo.stock)</td>
-									<td>ISBN:</td>
-									<td>#(bookinfo.ISBN)</td>
-									<td>出版时间：</td>
-									<td>#(bookinfo.pubTime)</td>
-								</tr>
-								<tr>
-									<td>页数：</td>
-									<td></td>
-									<td>字数：</td>
-									<td></td>
-									<td>纸张：</td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>版次：</td>
-									<td></td>
-									<td>印次：</td>
-									<td></td>
-									<td>包装：</td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<div id="review" class="tab-pane fade">
-					#for(x: bookreview.getList())
-					<hr>
-					<p>评价：#(x.reviews)</p>
-					<h5>时间：#(x.time)</h5><span>用户名：#(x.userName)</span>
-					<h5>购物评级：<span>#(x.level)</span></h5>
-					#end
+				<div class="panel-body">
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active"><a href="#home" data-toggle="tab">
+								图书详情 </a></li>
+						<li><a href="#review" data-toggle="tab"> 图书评论&nbsp;<span
+								class="badge">#(number.num??0)</span>
+						</a></li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<table class="table">
+								<tbody>
+									<tr>
+										<td>库存:</td>
+										<td>#(bookinfo.stock)</td>
+										<td>ISBN:</td>
+										<td>#(bookinfo.ISBN)</td>
+										<td>出版时间：</td>
+										<td>#(bookinfo.pubTime)</td>
+									</tr>
+									<tr>
+										<td>页数：</td>
+										<td></td>
+										<td>字数：</td>
+										<td></td>
+										<td>纸张：</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>版次：</td>
+										<td></td>
+										<td>印次：</td>
+										<td></td>
+										<td>包装：</td>
+										<td></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div id="review" class="tab-pane fade">
+							#for(x: bookreview.getList())
+							<hr>
+							<p>评价：#(x.reviews)</p>
+							<h5>时间：#(x.time)</h5>
+							<span>用户名：#(x.userName)</span>
+							<h5>
+								购物评级：<span>#(x.level)</span>
+							</h5>
+							#end
+						</div>
 					</div>
 				</div>
-			  </div>
 			</div>
 		</div>
 	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="/js/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
     $(document).ready(function(){
 	var mouseX = 0;		//鼠标移动的位置X
 	var mouseY = 0;		//鼠标移动的位置Y
@@ -327,5 +349,5 @@
 	$(".small").bind("mousemove",imgMouseMove).bind("mouseleave",cancle);
 })
 </script>
-  </body>
+</body>
 </html>

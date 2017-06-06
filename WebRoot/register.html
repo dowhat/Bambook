@@ -1,127 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>用户注册</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>用户注册</title>
 
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  </head>
-  <body>
+</head>
+<body>
 	<div class="header">
-	  <div class="row">
-		<nav id="search" class="navbar">
-			<div class="col-md-3">
-				<a href="/"><img src="/picture/DDlogoNEW.gif"></img></a>
-			</div>
-			<div class="col-md-6">
-			<form role="form" action="/search/search">
-				<div class="input-group" style="margin-top:20px">
-				  <input type="text" class="form-control" name="input" placeholder="Search for...">
-				  <span class="input-group-btn">
-					<button class="btn btn-default" type="submit" >Go!</button>
-				  </span>
+		<div class="row">
+			<nav id="search" class="navbar">
+				<div class="col-md-3">
+					<a href="/"><img src="/picture/DDlogoNEW.gif"></img></a>
 				</div>
-				<nav>
-				  <strong>热搜:</strong>&nbsp;&nbsp;
-				  <a href="/search/search/javaweb">JavaWeb</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/C++">C++</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/择天记">择天记</a> &nbsp;&nbsp;&nbsp;&nbsp;
-				  <a href="/search/search/刘明">刘明</a>
-				</nav>
-			</form>
-			</div>
-		</nav>
-	  </div>	
+				<div class="col-md-6">
+					<form role="form" action="/search/search">
+						<div class="input-group" style="margin-top: 20px">
+							<input type="text" class="form-control" name="input"
+								placeholder="Search for..."> <span
+								class="input-group-btn">
+								<button class="btn btn-default" type="submit">Go!</button>
+							</span>
+						</div>
+						<nav>
+							<strong>热搜:</strong>&nbsp;&nbsp; <a href="/search/search/javaweb">JavaWeb</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/C++">C++</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/择天记">择天记</a>
+							&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/刘明">刘明</a>
+						</nav>
+					</form>
+				</div>
+			</nav>
+		</div>
 	</div>
 	<div class="content">
 		<div class="col-md-offset-3 col-md-6">
 			<div class="panel panel-primary">
-			  <div class="panel-body">
-				<ul id="myTab" class="nav nav-tabs">
-					<li class="active">
-						<a href="#home" data-toggle="tab">
-							 用户注册
-						</a>
-					</li>
-					</li>
-				</ul>
-				<div id="myTabContent" class="tab-content">
-					<div class="tab-pane fade in active" id="home">
-						<form class="form-horizontal" role="form" action="/register/add" method="post">
-						  <br>
-						  <div class="form-group">
-							<label for="username" class="col-sm-2 control-label">用户名</label>
-							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="username" name="userinfo.username" value="#(userinfo.username??)" placeholder="请输入您的用户名">
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label for="password" class="col-sm-2 control-label">登录密码</label>
-							<div class="col-sm-10">
-							  <input type="password" class="form-control" id="password"  name="userinfo.password" value="#(userinfo.password??)">
-							</div>
-						  </div>
-						  <div class="form-group">
-							<label for="password2" class="col-sm-2 control-label">确认密码</label>
-							<div class="col-sm-10">
-							  <input type="password" class="form-control" name="password2" placeholder="">
-							</div>
-						  </div>
-						  <div class="form-group">
-						  <br>
-							<label for="verifyCode" class="col-sm-2 control-label">验证码</label>
-							<div class="col-sm-6">
-							  <input type="text" class="form-control" name="vcode" id="verifyCode" placeholder="请输入验证码">
-							</div>
-							<div class="col-sm-4">
-								<a href="/register">
-								<img class="logo" src="/picture/vcode.png" style="padding-top:20px; padding-left:50px;"/>
-								</a>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-							  <div class="checkbox">
-								<label>
-								  <input type="checkbox">我已阅读并同意《XX交易条款》</input>
-								</label>
-							  </div>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-							  <button  type="submit" class="btn btn-default">立即注册</button>
-							  <span style="color:red">#(msg2??)</span>
-							</div>
-						  </div>
-						</form>
+				<div class="panel-body">
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active"><a href="#home" data-toggle="tab">
+								用户注册 </a></li>
+						</li>
+					</ul>
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade in active" id="home">
+							<form class="form-horizontal" role="form" action="/register/add"
+								method="post">
+								<br>
+								<div class="form-group">
+									<label for="username" class="col-sm-2 control-label">用户名</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" id="username"
+											name="userinfo.username" value="#(userinfo.username??)"
+											placeholder="请输入您的用户名">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="password" class="col-sm-2 control-label">登录密码</label>
+									<div class="col-sm-10">
+										<input type="password" class="form-control" id="password"
+											name="userinfo.password" value="#(userinfo.password??)">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="password2" class="col-sm-2 control-label">确认密码</label>
+									<div class="col-sm-10">
+										<input type="password" class="form-control" name="password2"
+											placeholder="">
+									</div>
+								</div>
+								<div class="form-group">
+									<br> <label for="verifyCode"
+										class="col-sm-2 control-label">验证码</label>
+									<div class="col-sm-6">
+										<input type="text" class="form-control" name="vcode"
+											id="verifyCode" placeholder="请输入验证码">
+									</div>
+									<div class="col-sm-4">
+										<a href="/register"> <img class="logo"
+											src="/picture/vcode.png"
+											style="padding-top: 20px; padding-left: 50px;" />
+										</a>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<div class="checkbox">
+											<label> <input type="checkbox">我已阅读并同意《XX交易条款》</input>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<button type="submit" class="btn btn-default">立即注册</button>
+										<span style="color: red">#(msg2??)</span>
+									</div>
+								</div>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div id="footer" style="width:100%;height:100px;text-align:center" class="col-md-12">
-		<div class="footer_copyright"><span>Copyright (C) 当当网 2004-2017, All Rights Reserved</span></div>
-		<div class="footer_copyright"><span><a href="http://www.miibeian.gov.cn/" target="_blank" rel="nofollow">京ICP证041189号</a></span>
-		<span class="sep">|</span><span>出版物经营许可证 新出发京批字第直0673号</span>
-		<span class="sep">|</span><span>食品流通许可证：SP1101011010021855(1-1)</span>
-		<br><span>互联网药品信息服务资格证编号：(京)-非经营性-2012-0016</span><span class="sep">|</span>
-		<span>京公网安备110101000001号</span></div>
-	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/js/bootstrap.min.js"></script>
-  </body>
+		<div id="footer"
+			style="width: 100%; height: 100px; text-align: center"
+			class="col-md-12">
+			<div class="footer_copyright">
+				<span>Copyright (C) 当当网 2004-2017, All Rights Reserved</span>
+			</div>
+			<div class="footer_copyright">
+				<span><a href="http://www.miibeian.gov.cn/" target="_blank"
+					rel="nofollow">京ICP证041189号</a></span> <span class="sep">|</span><span>出版物经营许可证
+					新出发京批字第直0673号</span> <span class="sep">|</span><span>食品流通许可证：SP1101011010021855(1-1)</span>
+				<br>
+				<span>互联网药品信息服务资格证编号：(京)-非经营性-2012-0016</span><span class="sep">|</span>
+				<span>京公网安备110101000001号</span>
+			</div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="/js/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="/js/bootstrap.min.js"></script>
+</body>
 </html>
