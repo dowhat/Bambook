@@ -1,6 +1,11 @@
 package com.bambook.model.base;
 
 import com.jfinal.plugin.activerecord.Model;
+
+import java.util.Date;
+
+import org.apache.solr.client.solrj.beans.Field;
+
 import com.jfinal.plugin.activerecord.IBean;
 
 /**
@@ -8,9 +13,32 @@ import com.jfinal.plugin.activerecord.IBean;
  */
 @SuppressWarnings({"serial", "unchecked"})
 public abstract class BaseBookinfo<M extends BaseBookinfo<M>> extends Model<M> implements IBean {
-
+	@Field
+	private int bookID;
+	@Field
+	private String ISBN;
+	@Field
+	public String book;
+	@Field
+	private String writer;
+	@Field
+	private String pubFirm;
+	@Field
+	private Date pubTime;
+	@Field
+	private int catalogID;
+	@Field
+	private float price;
+	@Field
+	private int stock;
+	@Field
+	private String abstracts;
+	@Field
+	private int sales;
+	@Field
+	private String picture;
 	public M setBookID(java.lang.Integer bookID) {
-		set("bookID", bookID);
+		this.bookID=bookID;
 		return (M)this;
 	}
 
@@ -90,13 +118,13 @@ public abstract class BaseBookinfo<M extends BaseBookinfo<M>> extends Model<M> i
 		return get("stock");
 	}
 
-	public M setAbstract(java.lang.String _abstract) {
-		set("abstract", _abstract);
+	public M setAbstracts(java.lang.String _abstract) {
+		set("abstracts", _abstract);
 		return (M)this;
 	}
 
-	public java.lang.String getAbstract() {
-		return get("abstract");
+	public java.lang.String getAbstracts() {
+		return get("abstracts");
 	}
 
 	public M setSales(java.lang.Integer sales) {

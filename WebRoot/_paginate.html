@@ -1,8 +1,8 @@
 #define paginate(currentPage, totalPage, ID, searchFunc, link)
 #if(totalPage <= 0 || currentPage > totalPage) #return #end
 #setLocal(startPage = currentPage - 4) #if (startPage < 1)
-#setLocal(startPage = 1) #end #setLocal(endPage = currentPage + 4) #if
-(endPage > totalPage) #setLocal(endPage = totalPage) #end
+#setLocal(startPage = 1) #end #setLocal(endPage = currentPage + 4) 
+#if(endPage > totalPage) #setLocal(endPage = totalPage) #end
 
 <ul class="pagination">
 	#if (currentPage <= 8) #setLocal(startPage = 1) #end #if ((totalPage -

@@ -19,6 +19,9 @@ public class manageCenterController extends Controller {
 		
 	}
 	
+	//show book info
+	public void showBook(){
+	}
 	//add new book into database
 	public void addBook(){
 		

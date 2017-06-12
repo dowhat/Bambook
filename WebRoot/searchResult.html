@@ -101,9 +101,9 @@
 						href='javascript:;' data-page='article'>评价</a>
 				</div>
 			</div>
-			#if(number.num != 0)
+			#if(number != 0)
 			<div class='search-related'>
-				共找到 <strong>#(number.num)&nbsp;</strong>个相关内容
+				共找到 <strong>#(number)&nbsp;</strong>个相关内容
 			</div>
 			#else
 			<div class="search-related" style="height: 360px">
@@ -143,7 +143,7 @@
 						</div>
 						<br>
 						<p class='content'>
-							<span>书籍简介：</span> <span class='highlight'>#(x.abstract)</span>
+							<span>书籍简介：</span> <span class='highlight'>#(x.abstracts)</span>
 						</p>
 					</div>
 				</div>

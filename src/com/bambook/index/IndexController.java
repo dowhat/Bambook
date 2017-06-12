@@ -1,14 +1,10 @@
 package com.bambook.index;
 
-import com.bambook.model.Maincatalog;
-import com.bambook.model.Subcatalog;
-import com.jfinal.core.Controller;
+import com.bambook.BaseController;
 
-public class IndexController extends Controller {
+public class IndexController extends BaseController {
 	public void index() {
-		setAttr("mainCatalog", Maincatalog.dao.find("select * from Maincatalog"));
-		setAttr("subCatalog", Subcatalog.dao.find("select * from subcatalog"));
-		setAttr("userinfo", getSessionAttr("userinfo"));
+		super.index();
 		render("index.html");
 	}
 
