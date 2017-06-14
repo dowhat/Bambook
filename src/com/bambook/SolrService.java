@@ -31,6 +31,7 @@ public class SolrService {
 	        		doc.setField("book", map.get(doc.getFieldValue("bookID").toString()).get("book").get(0));
 	        	}
 	        	if(map.get(doc.getFieldValue("bookID").toString()).get("abstracts") != null){
+//highlight fragments:set fragmentSeparator "..."
 //	        		int i = map.get(doc.getFieldValue("bookID").toString()).get("abstracts").size();
 //	        		String abs = "";
 //	        		String fragmentSeparator = "<strong>...</strong>";
