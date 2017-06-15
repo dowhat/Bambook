@@ -22,6 +22,8 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
 import com.jfinal.template.Engine;
 
+import redis.clients.jedis.Jedis;
+
 public class BambookConfig extends JFinalConfig {
 
 	public static void main(String[] args) {

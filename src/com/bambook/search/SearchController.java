@@ -7,12 +7,12 @@ import java.util.List;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 
+import com.bambook.BaseController;
 import com.bambook.SolrService;
 import com.bambook.model.Bookinfo;
-import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 
-public class SearchController extends Controller {
+public class SearchController extends BaseController {
 	
 	//search by sub catalog 
 	public void catalogSearch(){
@@ -74,7 +74,6 @@ public class SearchController extends Controller {
 			input=URLDecoder.decode(getPara(0),"UTF-8");
 		}
 		else if(input==""){
-			System.out.println("hello");
 			redirect("/");
 			return;
 		}

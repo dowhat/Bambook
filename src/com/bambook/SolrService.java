@@ -10,6 +10,8 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 
+import redis.clients.jedis.Jedis;
+
 
 public class SolrService {
 
@@ -20,6 +22,7 @@ public class SolrService {
 	        
 	        //search book
 	        QueryResponse respone = SolrUtil.query(temp, field);
+//	        Jedis jedis = new Jedis("localhost");
 	        System.out.println(respone);
 	        SolrDocumentList docs = respone.getResults();
 	        Map<String, Map<String, List<String>>> map = respone.getHighlighting();

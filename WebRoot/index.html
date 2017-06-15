@@ -70,10 +70,10 @@
 						</span>
 					</div>
 					<nav>
-						<strong>热搜:</strong>&nbsp;&nbsp; <a href="/search/search/javaweb">JavaWeb</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/C++">C++</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/择天记">择天记</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a href="/search/search/刘明">刘明</a>
+						<strong>热搜:</strong>
+						#for(i = 0; i < hotSearch.size(); i++)
+						&nbsp;&nbsp; <a href="/search/search/#(hotSearch.get(i))">#(hotSearch.get(i))</a>&nbsp;&nbsp;						
+						#end
 					</nav>
 				</div>
 			</form>
@@ -97,15 +97,20 @@
 					<li role="presentation" class="active"
 						style="background-color: #CCCCFF"><a href="#">图书分类</a></li>
 					#for(x: mainCatalog)
-					<li><a href="/subCatalog/#(x.getMCatalogID())" class="has-row"
-						aria-extra-expanded="false">#(x.getMCatalogName()) <span
+					<li><a href="/subCatalog/#(x.mCatalogID)" class="has-row"
+						aria-extra-expanded="false">#(x.mCatalogName) <span
 							style="text-align: right">></span>
 					</a>
 						<ul aria-expanded="false">
-							#for(y: subCatalog) #if(x.getMCatalogID() == y.getMCatalogID())
+							#for(y: subCatalog) 
+							#if(x.mCatalogID == y.mCatalogID)
 							<li><a href="/search/catalogSearch/#(y.sCatalogID)"
-								name="sCatalogName">#(y.getSCatalogName())</a></li> #end #end
-						</ul></li> #end
+								name="sCatalogName">#(y.sCatalogName)</a>
+							</li>
+							#end
+							#end
+						</ul></li> 
+					#end
 			</div>
 			<div class="col-md-offset-2 col-md-10">
 				<div class="row">
