@@ -7,6 +7,12 @@ import java.io.IOException;
 import com.bambook.model.Userinfo;
 import com.jfinal.core.Controller;
 
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		login controller ,check login data
+*/
 public class LoginController extends Controller {
 	public void index() throws IOException {
 		String temp = VerifyPicture.drawPicture();
@@ -15,8 +21,7 @@ public class LoginController extends Controller {
 		render("/login.html");
 	}
 
-	/* login verify
-	 */
+	// login verify
 	public void login() {
 		String username = getPara("username");
 		String password = getPara("password");

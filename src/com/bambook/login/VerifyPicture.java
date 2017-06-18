@@ -11,7 +11,13 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 import com.jfinal.kit.PathKit;
- 
+
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		generate verify picture
+*/
 public class VerifyPicture {
     public static Random random = new Random();
     public static int r(int min,int max){

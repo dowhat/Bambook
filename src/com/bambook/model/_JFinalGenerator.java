@@ -7,9 +7,14 @@ import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.generator.Generator;
 import com.jfinal.plugin.druid.DruidPlugin;
 
-/**
- * 在数据库表有任何变动时，运行一下 main 方法，极速响应变化进行代码重构
- */
+
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		when you change the table in database, run this class to rebuild the model class
+* 					在数据库表有任何变动时，运行一下 main 方法，极速响应变化进行代码重构
+*/
 public class _JFinalGenerator {
 
 	public static DataSource getDataSource() {

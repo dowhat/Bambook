@@ -1,12 +1,17 @@
 package com.bambook.redis;
 
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import com.bambook.model.Maincatalog;
 
 import redis.clients.jedis.Jedis;
+
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		test redis, use this class to edit the redis cache
+*/
 public class RedisJava {
    public static void main(String[] args) {
       //连接本地的 Redis 服务
@@ -25,7 +30,6 @@ public class RedisJava {
           jedis.lpush("hotSearch", "刘明");
 
           jedis.lpush("activity", "activity1.jpg", "activity2.jpg", "activity3.jpg");
-//
 //          List<String> list = jedis.lrange("test-list", 0, 2);
 //          for(int i = 0; i < list.size(); i++){
 //        	  System.out.println(list.size());
@@ -44,6 +48,8 @@ public class RedisJava {
     	  System.out.println("redis connection failed");
       }
   }
+   
+   // add Catalog data to cache
    public void addCatalogToRedis(){
  	  Jedis jedis = new Jedis("localhost");
  	  List<Maincatalog> mC = Maincatalog.dao.find("select * from Maincatalog");

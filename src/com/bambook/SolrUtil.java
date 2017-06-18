@@ -14,12 +14,13 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.client.solrj.response.QueryResponse;
 
-/**
- * solr工具类
- * 
- * @author xueyu
- * @time 2017.6.9
- */
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		solr function class
+*/
+
 public class SolrUtil {
     private static SolrClient client;
     private static String url;
@@ -29,8 +30,7 @@ public class SolrUtil {
     }
 
     /**
-     * save or refresh solr date
-     * full import
+     * @description: save or refresh solr date full import
      * @param res
      */
     public static boolean updateSolrdate() {
@@ -61,8 +61,7 @@ public class SolrUtil {
     }
 
     /**
-     * delete solr date
-     * 
+     * @description: delete solr date
      * @param id
      */
     public static boolean removeSolrData(String id) {
@@ -75,9 +74,9 @@ public class SolrUtil {
         }
         return true;
     }
+    
      /**
      * search
-     * 
      * @param keywords,field
      */
     public static QueryResponse query(String keywords, String field) throws SolrServerException, IOException {

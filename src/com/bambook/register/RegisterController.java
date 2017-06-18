@@ -6,6 +6,12 @@ import com.bambook.login.VerifyPicture;
 import com.bambook.model.Userinfo;
 import com.jfinal.core.Controller;
 
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		render the register page
+*/
 public class RegisterController extends Controller {
 	public void index() throws IOException{
 		String temp = VerifyPicture.drawPicture();
@@ -14,6 +20,7 @@ public class RegisterController extends Controller {
 		render("register.html");
 	}
 
+	// add new user
 	public void add(){
 		String verifyCode = getPara("vcode");
 		String password2 = getPara("password2");

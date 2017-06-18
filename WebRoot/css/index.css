@@ -125,3 +125,7 @@ ul>li>a {
 	top: 0;
 	left: 4px;
 }
+
+#searchNav a.active {
+	color: #f2b632
+}

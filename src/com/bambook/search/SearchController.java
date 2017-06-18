@@ -12,6 +12,12 @@ import com.bambook.SolrService;
 import com.bambook.model.Bookinfo;
 import com.jfinal.plugin.activerecord.Page;
 
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		render searchResult page, define the search service
+*/
 public class SearchController extends BaseController {
 	
 	//search by sub catalog 
@@ -99,6 +105,7 @@ public class SearchController extends BaseController {
 		
 	}
 	
+	// set some attr
 	public void result(String searchFunc, String searchTemp){
 		setAttr("searchFunc", searchFunc);
 		setAttr("searchTemp", searchTemp);
@@ -106,12 +113,15 @@ public class SearchController extends BaseController {
 		render("searchResult.html");
 	}
 	
+	// set some attr
 	public void result(String searchFunc, int searchTemp){
 		setAttr("searchFunc", searchFunc);
 		setAttr("searchTemp", searchTemp);
 		setAttr("userinfo", getSessionAttr("userinfo"));		
 		render("searchResult.html");
 	}
+	
+	// return order SQL
 	public String orderSQL(int i){
 		String orderSQL = "";
 		switch(i){
@@ -128,6 +138,7 @@ public class SearchController extends BaseController {
 		return orderSQL;
 	}
 	
+	// get the page list about the pageNum
 	public List<SolrDocument> getPageList(List<SolrDocument> docs,int pageNum,int pageSize){
 		int fromIndex, toIndex;
 		int size = docs.size();

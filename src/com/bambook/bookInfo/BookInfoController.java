@@ -6,6 +6,13 @@ import com.bambook.model.Maincatalog;
 import com.bambook.model.Subcatalog;
 import com.jfinal.core.Controller;
 
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		set data for bookinfo page 
+*/
+
 public class BookInfoController extends Controller {
 
 	// render bookInfo.html 

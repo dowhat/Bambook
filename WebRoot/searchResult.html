@@ -95,10 +95,10 @@
 		<div id="searchbody" class="search-body col-md-offset-3 col-md-6">
 			<div class='search-nav-warp'>
 				<div class='search-nav' id='searchNav'>
-					<a href='/search/#(searchFunc)/#(searchTemp)-1-0'>综合</a> <a
-						href='/search/#(searchFunc)/#(searchTemp)-1-4'>销量</a> <a
-						href='/search/#(searchFunc)/#(searchTemp)-1-1'>价格</a> <a
-						href='javascript:;' data-page='article'>评价</a>
+					<a href='/search/#(searchFunc)/#(searchTemp)-1-0' onclick="change_bg(this)">综合</a> 
+					<a href='/search/#(searchFunc)/#(searchTemp)-1-4' onclick="change_bg(this)">销量</a> 
+					<a href='/search/#(searchFunc)/#(searchTemp)-1-1' onclick="change_bg(this)">价格</a> 
+					<a href='javascript:;' data-page='article'>评价</a>
 				</div>
 			</div>
 			#if(number != 0)
@@ -111,6 +111,7 @@
 				</strong>
 				<ol>
 					<li>看看输入的文字是否有误</li>
+					<li>注意输入文字而非拼音</li>
 					<li>调整关键字 如 “javaWEB” 改为“java web"</li>
 					<li>重新搜索</li>
 				</ol>
@@ -171,5 +172,11 @@
 	<script src="/js/jquery.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/js/bootstrap.min.js"></script>
+	<script>
+	function change_bg(obj){  
+		var a=document.getElementByID("searchNav").getElementsByTagName("a").setAttribute('class','');
+		obj.className = 'active';
+	}
+	</script>
 </body>
 </html>

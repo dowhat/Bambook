@@ -4,6 +4,12 @@ import com.bambook.model.Address;
 import com.bambook.model.Userinfo;
 import com.jfinal.core.Controller;
 
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		render user center page
+*/
 public class UserCenterController extends Controller {
 	
 	public void index(){
@@ -24,10 +30,12 @@ public class UserCenterController extends Controller {
 	public void addAddress(){
 		
 	}
+	
 	//edit address
 	public void editAddress(){
 		
 	}
+	
 	//edit user info
 	public void editUserinfo(){
 		

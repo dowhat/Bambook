@@ -1,10 +1,16 @@
 package com.bambook.memcached;
 
-import net.spy.memcached.MemcachedClient;
-import java.net.*;
+import java.net.InetSocketAddress;
 import java.util.concurrent.Future;
 
+import net.spy.memcached.MemcachedClient;
 
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		test memcached
+*/
 public class MemcachedJava {
    public static void main(String[] args) {
       try{
@@ -13,7 +19,8 @@ public class MemcachedJava {
          System.out.println("Connection to server sucessful.");
          
          // 存储数据
-         Future fo = mcc.set("runoob", 900, "Free Education");
+         @SuppressWarnings("rawtypes")
+		Future fo = mcc.set("runoob", 900, "Free Education");
       
          // 查看存储状态
          System.out.println("set status:" + fo.get());

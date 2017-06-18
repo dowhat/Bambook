@@ -9,6 +9,12 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Record;
 
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		render the order page, defined the order page service
+*/
 public class OrderController extends Controller {
 	
 	public void index(){
@@ -33,7 +39,7 @@ public class OrderController extends Controller {
 		}
 	}
 	
-	/* add new order */
+	// add new order
 	public void add(){
 		
 		if(getSessionAttr("userinfo") != null){

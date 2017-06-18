@@ -6,11 +6,16 @@ import javax.servlet.http.HttpSession;
 
 import com.bambook.model.Maincatalog;
 import com.bambook.model.Subcatalog;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.jfinal.core.Controller;
 
 import redis.clients.jedis.Jedis;
+
+/** 
+* @author 作者 :		xueyu 
+* @date 创建时间:		2017年6月18日 下午4:48:15
+* @version 版本:		1.0				 
+* @description:		base controller class ,define jedis client and userinfo
+*/
 
 public class BaseController extends Controller {
 
