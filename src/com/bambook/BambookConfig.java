@@ -1,15 +1,15 @@
 package com.bambook;
 
-import com.bambook.bookInfo.BookInfoController;
-import com.bambook.index.IndexController;
-import com.bambook.login.LoginController;
-import com.bambook.manageCenter.manageCenterController;
+import com.bambook.controller.BookInfoController;
+import com.bambook.controller.IndexController;
+import com.bambook.controller.LoginController;
+import com.bambook.controller.OrderController;
+import com.bambook.controller.RegisterController;
+import com.bambook.controller.SearchController;
+import com.bambook.controller.ShoppingCartController;
+import com.bambook.controller.UserCenterController;
+import com.bambook.controller.manageCenterController;
 import com.bambook.model._MappingKit;
-import com.bambook.order.OrderController;
-import com.bambook.register.RegisterController;
-import com.bambook.search.SearchController;
-import com.bambook.shoppingCart.ShoppingCartController;
-import com.bambook.userCenter.UserCenterController;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -30,7 +30,7 @@ import com.jfinal.template.Engine;
 */
 public class BambookConfig extends JFinalConfig {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {   
 		/**
 		 * 特别注意：Eclipse 之下建议的启动方式
 		 */
